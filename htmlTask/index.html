@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>The first page</title>
+</head>
+<body>
+<form action="./api.php" method="get">
+    <label for="text1">Put your text here</label>
+    <input id="text1" name="text1" type="text" placeholder="Yes, just right here">
+    <br>
+    <label>
+        Text area:
+        <textarea name="textarea" placeholder="put your text here too"></textarea>
+    </label>
+    <br>
+    <label for="radio1">1</label>
+    <input id="radio1" type="radio" name="radio" value="1">
+    <label for="radio2">2</label>
+    <input id="radio2" type="radio" name="radio" value="2">
+    <label for="radio3">3</label>
+    <input id="radio3" type="radio" name="radio" value="3">
+    <br>
+    <label>
+        1
+        <input name="checkBox1" type="checkbox">
+    </label>
+    <label>
+        2
+        <input name="checkBox2" type="checkbox">
+    </label>
+    <label>
+        3
+        <input name="checkBox3" type="checkbox">
+    </label>
+    <br>
+    <label>
+        list1
+        <select>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+    </label>
+    <br>
+    <label>
+        list2
+        <select multiple="multiple">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+    </label>
+    <br>
+    <button type="submit">Submit</button>
+</form>
+<a href="page2.html">Go to the second page</a>
+</body>
+</html>
