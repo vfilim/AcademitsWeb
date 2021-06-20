@@ -1,0 +1,34 @@
+* {
+    box-sizing: border-box;
+}
+
+.coworkers-table {
+    border-collapse: collapse;
+    width: 44.79%;
+    font-size: 20px;
+    font-family: Segoe UI, sans-serif;
+    font-weight: normal;
+}
+
+.coworkers-table thead {
+    background-color: #3498DB;
+    color: #FFF;
+}
+
+.coworkers-table tbody tr:nth-child(even) {
+    background-color: #FFF;
+}
+
+.coworkers-table tbody tr:nth-child(odd) {
+    background-color: #EEE;
+}
+
+.coworkers-table th {
+    text-align: left;
+    font-weight: normal;
+}
+
+.coworkers-table td, .coworkers-table th {
+    border: 1px solid #D2D2D2;
+    padding: 15px 10px;
+}
