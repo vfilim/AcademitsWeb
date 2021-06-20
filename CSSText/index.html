@@ -3,75 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <title>CSS text</title>
-    <link rel="stylesheet" href="../normalizer.css">
-    <style>
-        * {
-            background-color: #FEEED6;
-            box-sizing: border-box;
-        }
-
-        .course {
-            margin-top: 11px;
-            margin-left: 13px;
-            font-family: Arial, sans-serif;
-            font-size: 21px;
-            max-width: 810px;
-        }
-
-        .course > h1 {
-            max-width: 710px;
-            color: #676572;
-            font-size: 31px;
-            font-weight: 100;
-            margin-bottom: 6px;
-        }
-
-        .course-attribute {
-            color: #3A8FB3;
-            font-weight: bold;
-            line-height: 1.6;
-        }
-
-        .course-attribute p {
-            color: #777471;
-            font-size: 17px;
-            font-weight: lighter;
-            text-indent: 21px;
-            line-height: 1.5;
-            margin-top: 8px;
-        }
-
-        .course-attribute span {
-            color: #777471;
-            font-size: 17px;
-            font-weight: lighter;
-        }
-
-        .old-price {
-            text-decoration: line-through;
-        }
-    </style>
+    <link rel="stylesheet" href="./normalizer.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
-<body>
-<div class="course"><h1>КЛИЕНТСКАЯ ВЕБ-РАЗРАБОТКА (HTML, CSS, JAVASCRIPT)</h1>
-    <div class="course-attribute">Старт:
-        <span>идет набор</span></div>
-    <div class="course-attribute">Цена:
-        <span>12000 руб. <span class="old-price">13000 руб.</span> возможна оплата по частям</span></div>
-    <div class="course-attribute">Цена для студентов:
-        <span>9000 руб.</span></div>
-    <div class="course-attribute">Содержание курса:
-        <p>В курсе веб-разработки мы познакомим вас с клиентской веб-разработкой, которая включает в себя верстку -
+<body class="general">
+<div class="course">
+    <h1>КЛИЕНТСКАЯ ВЕБ-РАЗРАБОТКА (HTML, CSS, JAVASCRIPT)</h1>
+    <div class="course-attribute">
+        Старт: <span>идет набор</span>
+    </div>
+    <div class="course-attribute">
+        Цена: <span>12000 руб. <span class="old-price">13000 руб.</span> (возможна оплата по частям)</span>
+    </div>
+    <div class="course-attribute">
+        Цена для студентов: <span>9000 руб.</span>
+    </div>
+    <div class="course-attribute">
+        Содержание курса:
+        <p>
+            В курсе веб-разработки мы познакомим вас с клиентской веб-разработкой, которая включает в себя верстку -
             обучение
             HTML и CSS, и написание кода на JavaScript. На курсе JavaScript будут рассмотрены синтаксис, типы данных,
             работа
             с
-            DOM и событиями, стандартная библиотека языка.</p>
-        <p>В курсе JavaScript также рассматривается большое количество библиотек и средств разработки - jQuery, jQuery
+            DOM и событиями, стандартная библиотека языка.
+        </p>
+        <p>
+            В курсе JavaScript также рассматривается большое количество библиотек и средств разработки - jQuery, jQuery
             UI,
             Underscore, Vue.js, Bootstrap, npm, Webpack, Less/Sass, Babel. Также обзорно рассматриваем Grunt, RequireJS,
             TypeScript. В качестве серверной части используем Express.js. Обучение веб-разработке закрепляется на
-            практике.</p>
+            практике.
+        </p>
         <p>Вы научитесь создавать клиентскую часть сайта и получите большой кругозор по клиентским технологиям.</p>
     </div>
 </div>
