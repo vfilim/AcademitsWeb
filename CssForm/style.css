@@ -1,0 +1,63 @@
+* {
+    box-sizing: border-box;
+}
+
+.request-form {
+    font-family: "Segoe UI", sans-serif;
+}
+
+.request-form > * {
+    width: 846px;
+}
+
+.request-form > h2 {
+    margin: auto auto auto 22px;
+    font-size: 38px;
+    font-weight: normal;
+    color: #676565;
+    height: 46px;
+}
+
+.request-form > form > label > * {
+    margin: auto auto auto 22px;
+}
+
+.request-form > form > p {
+    margin: 15px auto 18px 22px;
+}
+
+.request-form > form {
+    background-color: #FEEED6;
+    color: #676565;
+}
+
+.request-form > form > label > span {
+    display: block;
+    font-weight: bold;
+    padding-top: 20px;
+    margin-bottom: 9px;
+}
+
+.request-form input {
+    width: 802px;
+    height: 38px;
+    border: 0;
+    padding-left: 15px;
+}
+
+.request-form textarea {
+    padding: 15px 15px;
+    width: 802px;
+    height: 130px;
+    border: 0;
+}
+
+.request-form button {
+    background-color: #378DB2;
+    color: #FFF;
+    border: 0;
+    font-weight: bold;
+    height: 35px;
+    width: 172px;
+    margin: 0 auto 17px 655px
+}
