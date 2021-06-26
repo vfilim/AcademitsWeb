@@ -69,17 +69,17 @@
         return evenNumbersSquares;
     }
 
-    var targetArray = getRandomNumbersArray(100, 1000)
+    var targetArray = getRandomNumbersArray(100, 1000);
 
     console.log(targetArray);
 
-    sortDesc(targetArray)
-    console.log(targetArray)
+    sortDesc(targetArray);
+    console.log(targetArray);
+;
+    console.log(getFirstFiveElements(targetArray));
+    console.log(getLastFiveElements(targetArray));
 
-    console.log(getFirstFiveElements(targetArray))
-    console.log(getLastFiveElements(targetArray))
+    console.log(getEvenNumbersSum(targetArray));
 
-    console.log(getEvenNumbersSum(targetArray))
-
-    console.log(getEvenNumbersSquares(targetArray))
+    console.log(getEvenNumbersSquares(targetArray));
 })();
