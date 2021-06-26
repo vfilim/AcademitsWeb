@@ -75,7 +75,7 @@
 
     sortDesc(targetArray);
     console.log(targetArray);
-;
+
     console.log(getFirstFiveElements(targetArray));
     console.log(getLastFiveElements(targetArray));
 
