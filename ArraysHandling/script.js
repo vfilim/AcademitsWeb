@@ -21,7 +21,7 @@
 
     function sortDesc(array) {
         array.sort(function (a, b) {
-            return b - a
+            return b - a;
         });
     }
 
