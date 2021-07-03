@@ -9,16 +9,6 @@
         return array;
     }
 
-    function getEvenNumbersSquares(array) {
-        var evenNumbersSquares = numbersRange.filter(function (x) {
-            return x % 2 == 0;
-        }).map(function (x) {
-            return x ** 2;
-        })
-
-        return evenNumbersSquares;
-    }
-
     function sortDesc(array) {
         array.sort(function (a, b) {
             return b - a;
@@ -34,27 +24,23 @@
     }
 
     function getEvenNumbers(array) {
-        var newArray = array.filter(function (x) {
-            return x % 2 == 0;
+        return array.filter(function (x) {
+            return x % 2 === 0;
         });
-
-        return newArray;
     }
 
     function getEvenNumbersSum(array) {
         var evenNumbersArray = getEvenNumbers(array)
 
-        var sum = evenNumbersArray.reduce(function (sum, current) {
+        return evenNumbersArray.reduce(function (sum, current) {
             return sum + current;
-        }, 0)
-
-        return sum;
+        }, 0);
     }
 
     function getFirstHundredNumbersArray() {
         var numbersRange = [];
 
-        for (var i = 1; i < 100; i++) {
+        for (var i = 1; i <= 100; i++) {
             numbersRange.push(i);
         }
 
@@ -62,11 +48,9 @@
     }
 
     function getEvenNumbersSquares(array) {
-        var evenNumbersSquares = getEvenNumbers(array).map(function (x) {
-            return x ** 2;
-        })
-
-        return evenNumbersSquares;
+        return getEvenNumbers(array).map(function (x) {
+            return Math.pow(x, 2);
+        });
     }
 
     var targetArray = getRandomNumbersArray(100, 1000);
@@ -81,5 +65,8 @@
 
     console.log(getEvenNumbersSum(targetArray));
 
-    console.log(getEvenNumbersSquares(targetArray));
+    var firstHundredNumbers = getFirstHundredNumbersArray();
+
+    console.log(firstHundredNumbers);
+    console.log(getEvenNumbersSquares(firstHundredNumbers));
 })();
