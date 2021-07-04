@@ -5,7 +5,7 @@
 .coworkers-table {
     border-collapse: collapse;
     max-width: 860px;
-    font-size: 20px;
+    font-size: 22px;
     font-family: Segoe UI, sans-serif;
     font-weight: normal;
 }
@@ -29,10 +29,11 @@
 }
 
 .coworkers-table td, .coworkers-table th {
+    width: 175px;
     border: 1px solid #D2D2D2;
-    padding: 15px 60px 15px 10px;
+    padding: 15px 10px;
 }
 
-td:nth-child(3) {
-    padding-right: 100px;
+th.job-title-column, td.job-title-column {
+    width: 310px;
 }
