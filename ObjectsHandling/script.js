@@ -1,87 +1,66 @@
 (function () {
-    function getCitiesCount(country) {
-        var count = country.cities.reduce(function (sum) {
-            sum++;
-
-            return sum;
+    function getMaxCitiesCountCountries(countries) {
+        var maxCitiesCount = countries.reduce(function (maxCitiesCount, country) {
+            return Math.max(country.cities.length, maxCitiesCount);
         }, 0);
 
-        return count;
+        return countries.filter(function (country) {
+            return country.cities.length === maxCitiesCount;
+        });
     }
 
-    function getMaxCitiesCount(countries) {
-        var maxCitiesCount = 0;
+    function getCountriesWithPopulation(countries) {
+        var countriesWithPopulation = {};
 
         countries.forEach(function (country) {
-            if (getCitiesCount(country) > maxCitiesCount) {
-                maxCitiesCount = getCitiesCount(country);
-            }
+            countriesWithPopulation[country.name] = country.cities.reduce(function (sum, city) {
+                return sum + city.population;
+            }, 0);
         });
 
-        return maxCitiesCount;
-    }
-
-    function getMaxCitiesCountCountries(countries) {
-        var maxCitiesCount = getMaxCitiesCount(countries);
-
-        var maxCitiesCountCountries = countries.filter(function (country) {
-            return getCitiesCount(country) === maxCitiesCount;
-        });
-
-        return maxCitiesCountCountries;
-    }
-
-    function getCountryWithPopulation(country) {
-        var countryWithPopulation = {};
-
-        countryWithPopulation[country.countryName] = country.cities.reduce(function (sum, current) {
-            return sum + current.population;
-            ;
-        }, 0);
-
-        return countryWithPopulation;
+        return countriesWithPopulation;
     }
 
     var countries = [
         {
-            countryName: "Russia",
+            name: "Russia",
             cities: [
                 {
-                    cityName: "Moscow",
+                    name: "Moscow",
                     population: 12.6
                 },
                 {
-                    cityName: "Saint-Petesburg",
+                    name: "Saint-Petesburg",
                     population: 5.4
                 }
             ]
         },
         {
-            countryName: "Germany",
+            name: "Germany",
             cities: [
                 {
-                    cityName: "Berlin",
+                    name: "Berlin",
                     population: 3.6
                 },
                 {
-                    cityName: "Bremen",
+                    name: "Bremen",
                     population: 0.5
                 },
                 {
-                    cityName: "Hamburg",
+                    name: "Hamburg",
                     population: 1.8
                 }
             ]
         },
         {
-            countryName: "Spain",
+            name: "Spain",
             cities: [
                 {
-                    cityName: "Madrid",
+                    name: "Madrid",
                     population: 3.3
                 },
                 {
-                    cityName: "Barcelona",
+                    name: "Barcelona",
                     population: 1.7
                 }
             ]
@@ -90,7 +69,5 @@
 
     console.log(getMaxCitiesCountCountries(countries));
 
-    console.log(countries.map(function (country) {
-        return getCountryWithPopulation(country);
-    }));
-})()
+    console.log(getCountriesWithPopulation(countries));
+})();
