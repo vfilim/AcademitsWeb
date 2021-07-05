@@ -34,6 +34,6 @@
     padding: 15px 10px;
 }
 
-.job-title-column {
+th.job-title-column, td.job-title-column {
     width: 310px;
 }
