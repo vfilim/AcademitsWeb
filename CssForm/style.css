@@ -7,11 +7,12 @@
 }
 
 .request-form > * {
-    width: 846px;
+    max-width: 846px;
 }
 
 .request-form > h2 {
-    margin: auto auto auto 22px;
+    padding: 0 22px;
+    margin: 0;
     font-size: 38px;
     font-weight: normal;
     color: #676565;
@@ -19,14 +20,21 @@
 }
 
 .request-form > form > label > * {
-    margin: auto auto auto 22px;
+    margin-left: 22px;
+}
+
+.request-form > form > label {
+    display: block;
+    margin-top: 19px;
 }
 
 .request-form > form > p {
-    margin: 15px auto 18px 22px;
+    margin: 15px 0 18px 22px;
 }
 
 .request-form > form {
+    padding-top: 1px;
+    padding-bottom: 1px;
     background-color: #FEEED6;
     color: #676565;
 }
@@ -34,30 +42,37 @@
 .request-form > form > label > span {
     display: block;
     font-weight: bold;
-    padding-top: 20px;
     margin-bottom: 9px;
 }
 
 .request-form input {
-    width: 802px;
+    width: calc(100% - 44px);
     height: 38px;
     border: 0;
-    padding-left: 15px;
+    padding: 0 15px;
 }
 
 .request-form textarea {
+    width: calc(100% - 44px);
     padding: 15px 15px;
-    width: 802px;
     height: 130px;
     border: 0;
+    resize: none;
 }
 
 .request-form button {
+    display: block;
     background-color: #378DB2;
     color: #FFF;
     border: 0;
     font-weight: bold;
     height: 35px;
     width: 172px;
-    margin: 0 auto 17px 655px
+    margin: 19px 17px 19px auto;
+}
+
+.request-form button:hover {
+    cursor: pointer;
+    background-color: #406260;
+
 }
