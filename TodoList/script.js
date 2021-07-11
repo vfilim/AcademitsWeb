@@ -16,8 +16,8 @@
 
             newEntry.appendChild(deleteEntryButton);
 
-            deleteEntryButton.addEventListener("click", function (e){
-               document.body.removeChild(newEntry);
+            deleteEntryButton.addEventListener("click", function (e) {
+                document.body.removeChild(newEntry);
             });
 
             newEntryInput.value = "";
