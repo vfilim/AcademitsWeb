@@ -3,20 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Temperature Conversion</title>
-    <link rel="stylesheet" href="normalizer.css">
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer="defer"></script>
 </head>
 <body>
-<label>
-    Celsius temperature:
-    <input class="celsius-temperature" type="number" min="-273">
-</label>
-<button class="convert-button">Convert</button>
-<p>
-    Fahrenheit: <span class="fahrenheit-temperature"></span>
-</p>
-<p>
-    Kelvin: <span class="kelvin-temperature"></span>
-</p>
-<script src="script.js"></script>
+<div class="temperature-converter">
+    <label>
+        Celsius temperature:
+        <input class="celsius-temperature" type="number">
+    </label>
+    <button class="convert-button">Convert</button>
+    <p>
+        Fahrenheit: <span class="fahrenheit-temperature"></span>
+    </p>
+    <p>
+        Kelvin: <span class="kelvin-temperature"></span>
+    </p>
+</div>
 </body>
 </html>
