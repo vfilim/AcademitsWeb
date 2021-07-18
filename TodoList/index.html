@@ -3,14 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>TODO list</title>
-    <link rel="stylesheet" href="normalizer.css">
+    <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer="defer"></script>
 </head>
 <body>
-<label>
-    <input class="new-entry-input" type="text">
-</label>
-<button class="add-entry-button">Add entry</button>
-<script src="script.js"></script>
+<div class="todo-list">
+    <h2>ToDo List</h2>
+    <label>
+        <input class="new-entry-input" type="text">
+    </label>
+    <button class="todo-list-button">Add entry</button>
+    <ol class="entries"></ol>
+</div>
 </body>
 </html>
