@@ -49,13 +49,13 @@
             age: 74,
             name: "Kira",
             lastName: "King"
-        },
+        }
     ];
 
     var averageAge = _.chain(people)
         .pluck('age')
         .reduce(function (memo, num) {
-            return memo + num
+            return memo + num;
         }, 0)
         .value() / people.length;
 
@@ -69,15 +69,13 @@
             return human.age >= fromAge && human.age <= toAge;
         })
         .sortBy("age")
-        .value()
+        .value();
 
     console.log(chosenAgePeople);
 
     var peopleWithFullNames = _.each(people, function (e) {
-        e.FullName = e.lastName + " " + e.name;
-
-        return;
+        e.fullName = e.lastName + " " + e.name;
     });
 
     console.log(peopleWithFullNames);
-}())
+}());
