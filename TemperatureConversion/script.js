@@ -25,11 +25,11 @@
     }
 
     function convertCelsiusToFahrenheit(celsius) {
-        return Math.round(((celsius * 9 / 5) + 32) * 10) / 10;
+        return ((celsius * 9 / 5) + 32).toFixed(2);
     }
 
     function convertCelsiusToKelvin(celsius) {
-        return Math.round((parseFloat(celsius) + 273.15) * 10) / 10;
+        return (parseFloat(celsius) + 273.15).toFixed(2);
     }
 
     document.addEventListener("DOMContentLoaded", ready);
