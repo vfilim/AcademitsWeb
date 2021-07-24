@@ -53,7 +53,7 @@
     ];
 
     var averageAge = _.chain(people)
-        .pluck('age')
+        .pluck("age")
         .reduce(function (memo, num) {
             return memo + num;
         }, 0)
