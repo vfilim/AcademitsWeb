@@ -15,7 +15,7 @@
             newEntry.className = "entry";
 
             var deleteEntryButton = document.createElement("button");
-            deleteEntryButton.className = "todo-list-button"
+            deleteEntryButton.className = "todo-list-button";
             deleteEntryButton.textContent = "Delete";
 
             newEntry.textContent = newEntryInput.value;
@@ -40,6 +40,7 @@
                 var editEntryInput = document.createElement("input");
                 editEntryInput.value = newEntry.textContent;
 
+                var oldText = newEntry.textContent;
                 newEntry.textContent = '';
 
                 newEntry.append(editEntryInput);
@@ -49,7 +50,14 @@
                 saveButton.textContent = "Save";
 
                 saveButton.addEventListener("click", function () {
+                    if (editEntryInput.value === "") {
+                        alert("The edit can't be empty");
+
+                        return;
+                    }
+
                     newEntry.removeChild(saveButton);
+                    newEntry.removeChild(cancelButton);
                     newEntry.removeChild(editEntryInput);
 
                     newEntry.textContent = editEntryInput.value;
@@ -58,7 +66,23 @@
                     newEntry.appendChild(deleteEntryButton);
                 });
 
+                var cancelButton = document.createElement("button");
+                cancelButton.className = "todo-list-button";
+                cancelButton.textContent = "Cancel";
+
+                cancelButton.addEventListener("click", function () {
+                    newEntry.removeChild(saveButton);
+                    newEntry.removeChild(cancelButton);
+                    newEntry.removeChild(editEntryInput);
+
+                    newEntry.textContent = oldText;
+
+                    newEntry.appendChild(editEntryButton);
+                    newEntry.appendChild(deleteEntryButton);
+                });
+
                 newEntry.appendChild(saveButton);
+                newEntry.appendChild(cancelButton);
             });
 
             newEntryInput.value = "";
