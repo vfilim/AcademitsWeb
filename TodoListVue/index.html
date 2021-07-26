@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Hello, world!</title>
+    <script src="node_modules/jquery/dist/jquery.min.js" defer></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="node_modules/vue/dist/vue.js" defer></script>
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+<div class="container" id="app">
+    <h2>Todo List Vue</h2>
+    <ul class="list-group">
+        <div v-cloak v-for="item in items" v-bind:key="item.id">
+            <div v-if="item.isEditing" class="row">
+                <input class="form-control col-10" type="text" v-model="item.editText">
+                <button @click="saveEdit(item)" class="btn btn-outline-secondary" type="button" id="button-addon3">
+                    Save
+                </button>
+                <button @click="cancelEdit(item)" class="btn btn-outline-secondary" type="button" id="button-addon4">
+                    Cancel
+                </button>
+            </div>
+            <div v-else class="row">
+                <li class="list-group-item col-10">
+                    {{ item.text }}
+                </li>
+                <button @click="editEntry(item)" class="btn btn-outline-secondary" type="button"
+                        id="button-addon3">
+                    Edit
+                </button>
+                <button @click="deleteEntry(item)" class="btn btn-outline-secondary" type="button" id="button-addon4">
+                    Delete
+                </button>
+            </div>
+        </div>
+    </ul>
+    <div class="input-group mb-3 row">
+        <input type="text" v-model="newEntry" class="form-control col-11" placeholder="New Entry" aria-label="New Entry"
+               aria-describedby="button-addon2">
+        <div class="input-group-append">
+            <button @click="addEntry" class="btn btn-outline-secondary" type="button" id="button-addon2">Add</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>
