@@ -5,6 +5,8 @@
         var entries = document.querySelector(".entries");
 
         newEntryButton.addEventListener("click", function () {
+            newEntryInput.value = trimString(newEntryInput.value);
+
             if (newEntryInput.value === '') {
                 alert("You can't add an empty entry");
 
@@ -50,6 +52,8 @@
                 saveButton.textContent = "Save";
 
                 saveButton.addEventListener("click", function () {
+                    editEntryInput.value = trimString(editEntryInput.value);
+
                     if (editEntryInput.value === "") {
                         alert("The edit can't be empty");
 
@@ -87,6 +91,20 @@
 
             newEntryInput.value = "";
         });
+
+        function trimString(string) {
+            var newString = string;
+
+            while (newString.charAt(0) === " ") {
+                newString = newString.substring(1);
+            }
+
+            while (newString.charAt(0, newString.length - 1) === " ") {
+                newString = newString.substring(0, newString.length - 1);
+            }
+
+            return newString;
+        }
     }
 
     document.addEventListener("DOMContentLoaded", ready);
