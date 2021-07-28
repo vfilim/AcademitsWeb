@@ -1,5 +1,7 @@
 $(function () {
     $(".add-entry-button").click(function () {
+        $(".new-entry-input").val($.trim($(".new-entry-input").val()))
+
         if ($(".new-entry-input").val() === "") {
             alert("You can't add an empty entry");
 
@@ -25,6 +27,8 @@ $(function () {
                 $("<button>Save</button>").appendTo(newEntry)
                     .addClass("todo-list-button")
                     .click(function () {
+                        editEntryInput.val($.trim(editEntryInput.val()));
+
                         if (editEntryInput.val() === "") {
                             alert("The edit can't be empty");
 
