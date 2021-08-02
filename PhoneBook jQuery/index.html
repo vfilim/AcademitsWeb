@@ -12,28 +12,33 @@
 <body>
 <div class="container">
     <h2>Bootstrap jQuery Phone Book</h2>
-    <table class="phone-book-table table table-striped">
+    <table class="phone-book-table table table-striped table-responsive-md">
         <thead class="table-info">
         <tr>
-            <th scope="col" class="col-1">№</th>
-            <th scope="col" class="col-3">Фамилия</th>
-            <th scope="col" class="col-4">Имя</th>
-            <th scope="col" class="col-3">Номер телефона</th>
+            <th scope="col">№</th>
+            <th scope="col">Last name</th>
+            <th scope="col">First name</th>
+            <th scope="col">Phone number</th>
             <th></th>
         </tr>
         </thead>
         <tbody>
         </tbody>
     </table>
-    <div class="add-entry-group input-group mb-3">
-        <span class="input-group-text" id="basic-addon1">Имя</span>
-        <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
-        <span class="input-group-text" id="basic-addon2">Фамилия</span>
-        <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon2">
-        <span class="input-group-text" id="basic-addon3">Номер телефона</span>
-        <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon3">
-        <button class="btn btn-outline-secondary add-entry-button" type="button">Добавить</button>
+    <div class="row col-12">
+        <span class="input-group-text col-md-12 col-lg-1" id="basic-addon1">First name</span>
+        <input type="text" class="form-control first-name-input col-md-12 col-lg-5" aria-label="First name"
+               aria-describedby="basic-addon1">
+        <span class="input-group-text col-md-12 col-lg-1" id="basic-addon2">Last name</span>
+        <input type="text" class="form-control last-name-input col-md-12 col-lg-5" aria-label="Last name"
+               aria-describedby="basic-addon2">
     </div>
+    <div class="add-entry-group input-group row col-12">
+        <span class="input-group-text col-md-12 col-lg-2" id="basic-addon3">Phone number</span>
+        <input type="text" class="form-control phone-number-input col-md-12 col-lg-10" aria-label="Phone number"
+               aria-describedby="basic-addon3">
+    </div>
+    <button class="btn btn-outline-secondary add-entry-button mt-3" type="button">Add</button>
 </div>
 </body>
 </html>

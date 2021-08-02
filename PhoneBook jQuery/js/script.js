@@ -2,29 +2,29 @@ $(function () {
     var rowsCount = 0;
 
     $(".add-entry-button").click(function () {
-        var firstNameInput = $(".form-control").eq(0);
-        var lastNameInput = $(".form-control").eq(1);
-        var phoneNumberInput = $(".form-control").eq(2);
+        var firstNameInput = $(".first-name-input");
+        var lastNameInput = $(".last-name-input");
+        var phoneNumberInput = $(".phone-number-input");
 
-        firstNameInput.css({"border-color": ""});
-        lastNameInput.css({"border-color": ""});
-        phoneNumberInput.css({"border-color": ""});
+        firstNameInput.removeClass("border-danger");
+        lastNameInput.removeClass("border-danger");
+        phoneNumberInput.removeClass("border-danger");
 
         $(".alerts-block").remove();
         var validationMessage = $("<div class=\"alerts-block\"></div>");
 
         if (firstNameInput.val() === "") {
-            firstNameInput.css({"border-color": "#dc3545"});
+            firstNameInput.addClass("border-danger");
             validationMessage.append($("<div class=\"alert alert-danger\" role=\"alert\">Enter the name<\div>"));
         }
 
         if (lastNameInput.val() === "") {
-            lastNameInput.css({"border-color": "#dc3545"});
+            lastNameInput.addClass("border-danger");
             validationMessage.append($("<div class=\"alert alert-danger\" role=\"alert\">Enter the last name<\div>"));
         }
 
         if (phoneNumberInput.val() === "") {
-            phoneNumberInput.css({"border-color": "#dc3545"});
+            phoneNumberInput.addClass("border-danger");
             validationMessage.append($("<div class=\"alert alert-danger\" role=\"alert\">Enter the number<\div>"));
         }
 
@@ -36,12 +36,14 @@ $(function () {
 
         var newRow = $("<tr></tr>");
 
-        newRow.append($("<td></td>").addClass("col-1").text(++rowsCount));
-        newRow.append($("<td></td>").addClass("col-3").text(firstNameInput.val()));
-        newRow.append($("<td></td>").addClass("col-4").text(lastNameInput.val()));
-        newRow.append($("<td></td>").addClass("col-3").text(phoneNumberInput.val()));
+        newRow.append($("<th></th>").attr("scoupe", "row").text(rowsCount + 1));
+        newRow.append($("<td></td>").text(firstNameInput.val()));
+        newRow.append($("<td></td>").text(lastNameInput.val()));
+        newRow.append($("<td></td>").text(phoneNumberInput.val()));
 
-        var deleteButton = $("<button class=\"btn btn-sm\">x</button>");
+        rowsCount++;
+
+        var deleteButton = $("<button class=\"btn btn-sm\">X</button>").attr("title", "Delete").addClass("p-0");
 
         deleteButton.click(function () {
             newRow.remove();
@@ -50,13 +52,13 @@ $(function () {
             recalculateRowNumbers();
         });
 
-        newRow.append($("<td></td>").addClass("col-1").append(deleteButton));
+        newRow.append($("<td></td>").append(deleteButton));
 
-        eraseInputs();
+        clearInputs();
 
         $("tbody").append(newRow);
 
-        function eraseInputs() {
+        function clearInputs() {
             firstNameInput.val("");
             lastNameInput.val("");
             phoneNumberInput.val("");
@@ -64,10 +66,8 @@ $(function () {
     });
 
     function recalculateRowNumbers() {
-        var i = 0;
-
-        while (i < rowsCount) {
-            $(".phone-book-table td:first-child").eq(i).html(++i);
-        }
+        $(".phone-book-table td:first-child").each(function (i) {
+            $(this).html(i + 1);
+        });
     }
 });
