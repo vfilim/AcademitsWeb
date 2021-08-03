@@ -1,15 +1,15 @@
 $(function () {
     $(".add-entry-button").click(function () {
-        $(".new-entry-input").val($.trim($(".new-entry-input").val()))
+        var newEntryInputString = $(".new-entry-input").val().trim();
 
-        if ($(".new-entry-input").val() === "") {
+        if (newEntryInputString === "") {
             alert("You can't add an empty entry");
 
             return;
         }
 
         var newEntry = $("<li></li>")
-            .text($(".new-entry-input").val())
+            .text(newEntryInputString)
             .addClass("entry");
 
         var editEntryButton = $("<button>Edit</button>")
@@ -27,9 +27,9 @@ $(function () {
                 $("<button>Save</button>").appendTo(newEntry)
                     .addClass("todo-list-button")
                     .click(function () {
-                        editEntryInput.val($.trim(editEntryInput.val()));
+                        var editEntryInputString = editEntryInput.val().trim();
 
-                        if (editEntryInput.val() === "") {
+                        if (editEntryInputString === "") {
                             alert("The edit can't be empty");
 
                             return;
