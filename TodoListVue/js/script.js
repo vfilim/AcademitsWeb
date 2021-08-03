@@ -9,13 +9,13 @@ var vm = new Vue({
 
     methods: {
         addEntry: function () {
-            if (this.newEntry == "") {
+            if (this.newEntry.trim() === "") {
                 alert("Enter the entry");
 
                 return;
             }
 
-            this.items.push({text: this.newEntry, editText: this.newEntry, id: this.id, isEditing: false});
+            this.items.push({text: this.newEntry.trim(), editText: this.newEntry, id: this.id, isEditing: false});
             this.id++;
             this.newEntry = "";
         },
@@ -36,8 +36,14 @@ var vm = new Vue({
         },
 
         saveEdit: function (item) {
+            if (item.editText.trim() === "") {
+                alert("The edit can't be empty");
+
+                return;
+            }
+
             item.isEditing = false;
-            item.text = item.editText;
+            item.text = item.editText.trim();
         }
     }
 });

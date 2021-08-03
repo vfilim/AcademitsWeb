@@ -13,39 +13,35 @@
 </head>
 <body>
 <div class="container" id="app">
-    <h2>Todo List Vue</h2>
-    <ul class="list-group">
-        <div v-cloak v-for="item in items" v-bind:key="item.id">
-            <div v-if="item.isEditing" class="row">
-                <input class="form-control col-10" type="text" v-model="item.editText">
-                <button @click="saveEdit(item)" class="btn btn-outline-secondary" type="button" id="button-addon3">
-                    Save
-                </button>
-                <button @click="cancelEdit(item)" class="btn btn-outline-secondary" type="button" id="button-addon4">
-                    Cancel
-                </button>
-            </div>
-            <div v-else class="row">
-                <li class="list-group-item col-10">
-                    {{ item.text }}
-                </li>
-                <button @click="editEntry(item)" class="btn btn-outline-secondary" type="button"
-                        id="button-addon3">
-                    Edit
-                </button>
-                <button @click="deleteEntry(item)" class="btn btn-outline-secondary" type="button" id="button-addon4">
-                    Delete
-                </button>
-            </div>
-        </div>
-    </ul>
-    <div class="input-group mb-3 row">
+    <h2 class="row">Todo List Vue</h2>
+    <div class="mb-3 row">
         <input type="text" v-model="newEntry" class="form-control col-11" placeholder="New Entry" aria-label="New Entry"
-               aria-describedby="button-addon2">
-        <div class="input-group-append">
-            <button @click="addEntry" class="btn btn-outline-secondary" type="button" id="button-addon2">Add</button>
-        </div>
+               aria-describedby="button-addon1">
+        <button @click="addEntry" class="btn btn-outline-secondary col-1" type="button" id="button-addon1">Add</button>
     </div>
+    <ul v-cloak v-for="item in items" :key="item.id" class="list-group">
+        <li v-if="item.isEditing" class="row m-1">
+            <input class="form-control col-10" type="text" v-model="item.editText">
+            <button @click="saveEdit(item)" class="btn btn-outline-secondary col ml-1" type="button" id="button-addon2">
+                Save
+            </button>
+            <button @click="cancelEdit(item)" class="btn btn-outline-secondary col ml-1" type="button"
+                    id="button-addon3">
+                Cancel
+            </button>
+        </li>
+        <li v-else class="row m-1">
+            <span class="list-group-item col-10">{{ item.text }}</span>
+            <button @click="editEntry(item)" class="btn btn-outline-secondary col ml-1" type="button"
+                    id="button-addon4">
+                Edit
+            </button>
+            <button @click="deleteEntry(item)" class="btn btn-outline-secondary col ml-1" type="button"
+                    id="button-addon5">
+                Delete
+            </button>
+        </li>
+    </ul>
 </div>
 </body>
 </html>
