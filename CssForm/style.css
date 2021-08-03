@@ -4,60 +4,54 @@
 
 .request-form {
     font-family: "Segoe UI", sans-serif;
-}
-
-.request-form > * {
     max-width: 846px;
 }
 
 .request-form > h2 {
-    padding: 0 22px;
+    padding: 5px 22px;
     margin: 0;
     font-size: 38px;
     font-weight: normal;
     color: #676565;
-    height: 46px;
-}
-
-.request-form > form > label > * {
-    margin-left: 22px;
 }
 
 .request-form > form > label {
-    display: block;
     margin-top: 19px;
 }
 
 .request-form > form > p {
-    margin: 15px 0 18px 22px;
+    margin-top: 15px;
+    margin-bottom: 18px;
 }
 
 .request-form > form {
-    padding-top: 1px;
-    padding-bottom: 1px;
     background-color: #FEEED6;
     color: #676565;
+    padding: 1px 22px;
+}
+
+.request-form > form > label {
+    display: inline-block;
 }
 
 .request-form > form > label > span {
-    display: block;
-    font-weight: bold;
     margin-bottom: 9px;
+    font-weight: bold;
+    display: inline-block;
 }
 
 .request-form input {
     width: calc(100% - 44px);
-    height: 38px;
     border: 0;
-    padding: 0 15px;
+    padding: 10px 15px;
 }
 
 .request-form textarea {
     width: calc(100% - 44px);
     padding: 15px 15px;
-    height: 130px;
+    min-height: 130px;
     border: 0;
-    resize: none;
+    resize: vertical;
 }
 
 .request-form button {
@@ -66,7 +60,7 @@
     color: #FFF;
     border: 0;
     font-weight: bold;
-    height: 35px;
+    padding: 8px 0;
     width: 172px;
     margin: 19px 17px 19px auto;
 }
@@ -74,5 +68,4 @@
 .request-form button:hover {
     cursor: pointer;
     background-color: #406260;
-
 }
