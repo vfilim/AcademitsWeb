@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Phone Book Vue</title>
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="node_modules/jquery/dist/jquery.min.js" defer></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="node_modules/vue/dist/vue.js" defer></script>
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+<div class="container" id="app">
+    <h1>Phone Book Vue</h1>
+    <table class="table">
+        <thead>
+        <tr>
+            <th class="col-1" scope="col">№</th>
+            <th class="col-3" scope="col">First Name</th>
+            <th class="col-3" scope="col">Last Name</th>
+            <th class="col-3" scope="col">Phone Number</th>
+            <th class="col-1" scope="col">Delete</th>
+        </tr>
+        </thead>
+        <tbody v-cloak v-for="item in items" :key="item.id">
+        <tr>
+            <th class="col-1" scope="row">{{ item.id }}</th>
+            <td class="col-3">{{ item.firstName }}</td>
+            <td class="col-3">{{ item.lastName }}</td>
+            <td class="col-3">{{ item.phoneNumber }}</td>
+            <td class="col-1">
+                <button class="btn btn-sm p-0" @click="deleteEntry(item)" title="Delete">X</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="input-group">
+        <span class="input-group-text col-2">First and last name</span>
+        <input type="text" v-model="firstName" aria-label="First name" class="form-control"
+               :class="{ 'border-danger': !isFirstNameCorrect }">
+        <input type="text" v-model="lastName" aria-label="Last name" class="form-control"
+               :class="{ 'border-danger': !isLastNameCorrect }">
+    </div>
+    <div class="input-group">
+        <span class="input-group-text col-2">Phone number</span>
+        <input type="text" v-model="phoneNumber" aria-label="Phone Number" class="form-control"
+               :class="{ 'border-danger': !isPhoneNumberCorrect }">
+    </div>
+    <button type="button" @click="addEntry" class="btn btn-success my-3">Add</button>
+    <div v-cloak class="alert alert-danger" role="alert" v-if="!isFirstNameCorrect">Enter the name</div>
+    <div v-cloak class="alert alert-danger" role="alert" v-if="!isLastNameCorrect">Enter the last name</div>
+    <div v-cloak class="alert alert-danger" role="alert" v-if="!isPhoneNumberCorrect">Enter the number</div>
+</div>
+</body>
+</html>
