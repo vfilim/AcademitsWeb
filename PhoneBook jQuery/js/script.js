@@ -15,17 +15,17 @@ $(function () {
 
         if (firstNameInput.val() === "") {
             firstNameInput.addClass("border-danger");
-            validationMessage.append($("<div class=\"alert alert-danger\" role=\"alert\">Enter the name<\div>"));
+            validationMessage.append($("<div class=\"alert alert-danger\" role=\"alert\">Enter the name</div>"));
         }
 
         if (lastNameInput.val() === "") {
             lastNameInput.addClass("border-danger");
-            validationMessage.append($("<div class=\"alert alert-danger\" role=\"alert\">Enter the last name<\div>"));
+            validationMessage.append($("<div class=\"alert alert-danger\" role=\"alert\">Enter the last name</div>"));
         }
 
         if (phoneNumberInput.val() === "") {
             phoneNumberInput.addClass("border-danger");
-            validationMessage.append($("<div class=\"alert alert-danger\" role=\"alert\">Enter the number<\div>"));
+            validationMessage.append($("<div class=\"alert alert-danger\" role=\"alert\">Enter the number</div>"));
         }
 
         if (validationMessage.text() !== "") {
