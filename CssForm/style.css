@@ -41,14 +41,15 @@
 }
 
 .request-form input {
-    width: calc(100% - 44px);
+    width: 100%;
     border: 0;
     padding: 10px 15px;
+    line-height: 1;
 }
 
 .request-form textarea {
-    width: calc(100% - 44px);
-    padding: 15px 15px;
+    width: 100%;
+    padding: 15px;
     min-height: 130px;
     border: 0;
     resize: vertical;
@@ -60,9 +61,8 @@
     color: #FFF;
     border: 0;
     font-weight: bold;
-    padding: 8px 0;
-    width: 172px;
-    margin: 19px 17px 19px auto;
+    padding: 8px 16px;
+    margin: 19px 0 19px auto;
 }
 
 .request-form button:hover {
