@@ -36,14 +36,14 @@ $(function () {
 
         var newRow = $("<tr></tr>");
 
-        newRow.append($("<th></th>").attr("scoupe", "row").text(rowsCount + 1));
+        newRow.append($("<th></th>").attr("scope", "row").text(rowsCount + 1));
         newRow.append($("<td></td>").text(firstNameInput.val()));
         newRow.append($("<td></td>").text(lastNameInput.val()));
         newRow.append($("<td></td>").text(phoneNumberInput.val()));
 
         rowsCount++;
 
-        var deleteButton = $("<button class=\"btn btn-sm\">X</button>").attr("title", "Delete").addClass("p-0");
+        var deleteButton = $("<button class=\"btn btn-sm p-0\" title=\"Delete\">X</button>");
 
         deleteButton.click(function () {
             newRow.remove();
@@ -56,7 +56,7 @@ $(function () {
 
         clearInputs();
 
-        $("tbody").append(newRow);
+        $(".phone-book-table tbody").append(newRow);
 
         function clearInputs() {
             firstNameInput.val("");
@@ -66,8 +66,8 @@ $(function () {
     });
 
     function recalculateRowNumbers() {
-        $(".phone-book-table td:first-child").each(function (i) {
-            $(this).html(i + 1);
+        $(".phone-book-table tbody th:first-child").each(function (i) {
+            $(this).text(i + 1);
         });
     }
 });
