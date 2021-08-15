@@ -65,8 +65,8 @@ var vm = new Vue({
         recalculateIds: function () {
             this.newId = this.items.length + 1;
 
-            this.items.forEach(function (object, index) {
-                object.id = index + 1;
+            this.items.forEach(function (item, index) {
+                item.id = index + 1;
             });
         }
     }
