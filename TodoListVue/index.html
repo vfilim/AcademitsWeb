@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <title>Hello, world!</title>
+    <title>ToDo List Vue!</title>
     <script src="node_modules/jquery/dist/jquery.min.js" defer></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" defer></script>
     <script src="node_modules/vue/dist/vue.js" defer></script>
@@ -13,33 +13,39 @@
 </head>
 <body>
 <div class="container" id="app">
-    <h2 class="row">Todo List Vue</h2>
-    <div class="mb-3 row">
-        <input type="text" v-model="newEntry" class="form-control col-11" placeholder="New Entry" aria-label="New Entry"
+    <h2>Todo List Vue</h2>
+    <div class="mb-3 input-group">
+        <input type="text" v-model="newEntry" class="form-control col" placeholder="New Entry" aria-label="New Entry"
                aria-describedby="button-addon1">
-        <button @click="addEntry" class="btn btn-outline-secondary col-1" type="button" id="button-addon1">Add</button>
+        <div class="input-group-append">
+            <button @click="addEntry" class="btn btn-outline-secondary ml-1 col" type="button" id="button-addon1">Add
+            </button>
+        </div>
     </div>
-    <ul v-cloak v-for="item in items" :key="item.id" class="list-group">
-        <li v-if="item.isEditing" class="row m-1">
-            <input class="form-control col-10" type="text" v-model="item.editText">
-            <button @click="saveEdit(item)" class="btn btn-outline-secondary col ml-1" type="button" id="button-addon2">
-                Save
-            </button>
-            <button @click="cancelEdit(item)" class="btn btn-outline-secondary col ml-1" type="button"
-                    id="button-addon3">
-                Cancel
-            </button>
-        </li>
-        <li v-else class="row m-1">
-            <span class="list-group-item col-10">{{ item.text }}</span>
-            <button @click="editEntry(item)" class="btn btn-outline-secondary col ml-1" type="button"
-                    id="button-addon4">
-                Edit
-            </button>
-            <button @click="deleteEntry(item)" class="btn btn-outline-secondary col ml-1" type="button"
-                    id="button-addon5">
-                Delete
-            </button>
+    <ul v-cloak class="list-group">
+        <li v-for="item in items" :key="item.id" class="row m-1">
+            <template v-if="item.isEditing">
+                <input class="form-control col-md-10 p-4" type="text" v-model="item.editText">
+                <button @click="saveEdit(item)" class="btn btn-outline-secondary col-md col-12 ml-md-1" type="button"
+                        id="button-addon2">
+                    Save
+                </button>
+                <button @click="cancelEdit(item)" class="btn btn-outline-secondary col-md col-12 ml-md-1" type="button"
+                        id="button-addon3">
+                    Cancel
+                </button>
+            </template>
+            <template v-else>
+                <span class="list-group-item col-md-10">{{ item.text }}</span>
+                <button @click="editEntry(item)" class="btn btn-outline-secondary col-md col-12 ml-md-1" type="button"
+                        id="button-addon4">
+                    Edit
+                </button>
+                <button @click="deleteEntry(item)" class="btn btn-outline-secondary col-md col-12 ml-md-1" type="button"
+                        id="button-addon5">
+                    Delete
+                </button>
+            </template>
         </li>
     </ul>
 </div>
