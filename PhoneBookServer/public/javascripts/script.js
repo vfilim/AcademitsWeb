@@ -65,6 +65,8 @@ var vm = new Vue({
                 contentType: "application/json",
                 data: JSON.stringify(item)
             });
+
+            this.recalculateNumbers();
         },
 
         findItems: function () {
@@ -82,7 +84,15 @@ var vm = new Vue({
                 items.forEach(function (x) {
                     self.items.push(x);
                 });
+
+                self.recalculateNumbers();
             });
+        },
+
+        recalculateNumbers: function () {
+            this.items.forEach(function (item, index) {
+                item.number = index + 1;
+            })
         }
     }
 });
