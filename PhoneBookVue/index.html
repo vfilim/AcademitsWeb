@@ -14,45 +14,47 @@
 <body>
 <div class="container" id="app">
     <h1>Phone Book Vue</h1>
-    <table class="table table-responsive-md">
-        <thead>
-        <tr>
-            <th scope="col">№</th>
-            <th scope="col">First Name</th>
-            <th scope="col">Last Name</th>
-            <th scope="col">Phone Number</th>
-            <th scope="col">Delete</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr v-cloak v-for="item in items" :key="item.id">
-            <th scope="row">{{ item.id }}</th>
-            <td>{{ item.firstName }}</td>
-            <td>{{ item.lastName }}</td>
-            <td>{{ item.phoneNumber }}</td>
-            <td>
-                <button class="btn btn-sm p-0" @click="deleteEntry(item)" title="Delete">X</button>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+    <div class="table-responsive-md">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">№</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-cloak v-for="item in items" :key="item.id">
+                <th scope="row">{{ item.id }}</th>
+                <td>{{ item.firstName }}</td>
+                <td>{{ item.lastName }}</td>
+                <td>{{ item.phoneNumber }}</td>
+                <td>
+                    <button class="btn btn-sm p-0" @click="deleteEntry(item)" title="Delete">X</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
     <form>
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="inputFirstName">First name</label>
                 <input type="text" v-model="firstName" aria-label="First name" class="form-control"
-                       :class="{ 'border-danger': !isFirstNameCorrect }" id="inputFirstName">
+                       :class="{ 'is-invalid': !isFirstNameCorrect }" id="inputFirstName">
             </div>
             <div class="form-group col-md-6">
                 <label for="inputLastName">Last name</label>
                 <input type="text" v-model="lastName" aria-label="Last name" class="form-control"
-                       :class="{ 'border-danger': !isLastNameCorrect }" id="inputLastName">
+                       :class="{ 'is-invalid': !isLastNameCorrect }" id="inputLastName">
             </div>
         </div>
         <div class="form-group">
             <label for="inputAddress">Phone number</label>
             <input type="text" v-model="phoneNumber" aria-label="Phone Number" class="form-control"
-                   :class="{ 'border-danger': !isPhoneNumberCorrect }" id="inputAddress">
+                   :class="{ 'is-invalid': !isPhoneNumberCorrect }" id="inputAddress">
         </div>
     </form>
     <button type="button" @click="addEntry" class="btn btn-success my-3">Add</button>
