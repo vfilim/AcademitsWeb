@@ -6,25 +6,25 @@ $(function () {
         var lastNameInput = $(".last-name-input");
         var phoneNumberInput = $(".phone-number-input");
 
-        firstNameInput.removeClass("border-danger");
-        lastNameInput.removeClass("border-danger");
-        phoneNumberInput.removeClass("border-danger");
+        firstNameInput.removeClass("is-invalid");
+        lastNameInput.removeClass("is-invalid");
+        phoneNumberInput.removeClass("is-invalid");
 
         $(".alerts-block").remove();
         var validationMessage = $("<div class=\"alerts-block\"></div>");
 
         if (firstNameInput.val() === "") {
-            firstNameInput.addClass("border-danger");
+            firstNameInput.addClass("is-invalid");
             validationMessage.append($("<div class=\"alert alert-danger\" role=\"alert\">Enter the name</div>"));
         }
 
         if (lastNameInput.val() === "") {
-            lastNameInput.addClass("border-danger");
+            lastNameInput.addClass("is-invalid");
             validationMessage.append($("<div class=\"alert alert-danger\" role=\"alert\">Enter the last name</div>"));
         }
 
         if (phoneNumberInput.val() === "") {
-            phoneNumberInput.addClass("border-danger");
+            phoneNumberInput.addClass("is-invalid");
             validationMessage.append($("<div class=\"alert alert-danger\" role=\"alert\">Enter the number</div>"));
         }
 
