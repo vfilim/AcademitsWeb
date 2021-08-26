@@ -12,30 +12,51 @@ router.get('/', function (req, res, next) {
 router.post('/api/addContact', function (req, res) {
     var request = req.body;
 
+    var isEntryCorrect = true;
+
+    if (request.firstName === undefined || request.firstName.trim() === "") {
+        isEntryCorrect = false;
+    }
+
+    if (request.lastName === undefined || request.lastName.trim() === "") {
+        isEntryCorrect = false;
+    }
+
+    if (request.phoneNumber === undefined || request.phoneNumber.trim() === "") {
+        isEntryCorrect = false;
+    }
+
+    if (!isEntryCorrect) {
+        res.send({"success": false, "message": "enter all fields"});
+
+        return;
+    }
+
     request.id = newId;
     newId++;
 
     items.push(request);
 
-    res.send('Success');
+    res.send({"success": true});
 });
 
 router.get('/api/findItems', function (req, res) {
-    var firstNameTerm = (req.query.firstName || '').toUpperCase();
-    var lastNameTerm = (req.query.lastName || '').toUpperCase();
-    var phoneNumberTerm = (req.query.phoneNumber || '').toUpperCase();
+    var searchString = (req.query.searchString || '').toUpperCase();
 
     res.send(items.filter(function (x) {
-        return (firstNameTerm === '' || x.firstName.toUpperCase().indexOf(firstNameTerm) >= 0) &&
-            (lastNameTerm === '' || x.lastName.toUpperCase().indexOf(lastNameTerm) >= 0) &&
-            (phoneNumberTerm === '' || x.phoneNumber.toUpperCase().indexOf(phoneNumberTerm) >= 0);
+        return (searchString === '' ||
+            x.firstName.toUpperCase().indexOf(searchString) >= 0 ||
+            x.lastName.toUpperCase().indexOf(searchString) >= 0 ||
+            x.phoneNumber.toUpperCase().indexOf(searchString) >= 0);
     }));
 });
 
 router.post('/api/deleteContact', function (req, res) {
     items = items.filter(function (x) {
-        return x.id != req.body.id;
+        return x.id !== req.body.id;
     });
+
+    res.send({"success": true});
 });
 
 module.exports = router;

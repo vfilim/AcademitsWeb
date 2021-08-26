@@ -7,10 +7,15 @@ var vm = new Vue({
         firstName: "",
         lastName: "",
         phoneNumber: "",
+        searchString: "",
 
         isFirstNameCorrect: true,
         isLastNameCorrect: true,
         isPhoneNumberCorrect: true
+    },
+
+    created: function () {
+        this.findItems();
     },
 
     methods: {
@@ -40,6 +45,8 @@ var vm = new Vue({
                 return;
             }
 
+            var self = this;
+
             $.post({
                 url: "/api/addContact",
                 contentType: "application/json",
@@ -48,6 +55,8 @@ var vm = new Vue({
                     lastName: this.lastName,
                     phoneNumber: this.phoneNumber
                 })
+            }, function () {
+                self.findItems();
             });
 
             this.firstName = "";
@@ -74,11 +83,7 @@ var vm = new Vue({
 
             self.items = [];
 
-            var firstNameTerm = "firstName=" + self.firstName;
-            var lastNameTerm = "&lastName=" + self.lastName;
-            var phoneNumberTerm = "&phoneNumber=" + self.phoneNumber;
-
-            var term = firstNameTerm + lastNameTerm + phoneNumberTerm;
+            var term = "searchString=" + self.searchString;
 
             $.get('/api/findItems?' + term, function (items) {
                 items.forEach(function (x) {
@@ -92,7 +97,7 @@ var vm = new Vue({
         recalculateNumbers: function () {
             this.items.forEach(function (item, index) {
                 item.number = index + 1;
-            })
+            });
         }
     }
 });
