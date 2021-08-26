@@ -23,26 +23,26 @@
         </div>
     </div>
     <ul v-cloak class="list-group">
-        <li v-for="item in items" :key="item.id" class="row m-1">
+        <li v-for="item in items" :key="item.id" class="row mx-0 my-2 my-md-1">
             <template v-if="item.isEditing">
-                <input class="form-control col-md-10 p-4" type="text" v-model="item.editText">
-                <button @click="saveEdit(item)" class="btn btn-outline-secondary col-md col-12 ml-md-1" type="button"
-                        id="button-addon2">
+                <input class="form-control col-lg-10 p-4 my-1" type="text" v-model="item.editText">
+                <button @click="saveEdit(item)" class="btn btn-outline-secondary col-md col-12 ml-lg-1 my-1"
+                        type="button">
                     Save
                 </button>
-                <button @click="cancelEdit(item)" class="btn btn-outline-secondary col-md col-12 ml-md-1" type="button"
-                        id="button-addon3">
+                <button @click="cancelEdit(item)" class="btn btn-outline-secondary col-md col-12 ml-md-1 my-1"
+                        type="button">
                     Cancel
                 </button>
             </template>
             <template v-else>
-                <span class="list-group-item col-md-10">{{ item.text }}</span>
-                <button @click="editEntry(item)" class="btn btn-outline-secondary col-md col-12 ml-md-1" type="button"
-                        id="button-addon4">
+                <span class="list-group-item col-lg-10 my-1">{{ item.text }}</span>
+                <button @click="editEntry(item)" class="btn btn-outline-secondary col-md col-12 ml-lg-1 my-1"
+                        type="button">
                     Edit
                 </button>
-                <button @click="deleteEntry(item)" class="btn btn-outline-secondary col-md col-12 ml-md-1" type="button"
-                        id="button-addon5">
+                <button @click="deleteEntry(item)" class="btn btn-outline-secondary col-md col-12 ml-md-1 my-1"
+                        type="button">
                     Delete
                 </button>
             </template>
