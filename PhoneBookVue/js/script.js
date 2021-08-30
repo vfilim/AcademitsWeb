@@ -52,6 +52,8 @@ var vm = new Vue({
             this.firstName = "";
             this.lastName = "";
             this.phoneNumber = "";
+
+            this.recalculateNumbers();
         },
 
         deleteEntry: function (item) {
@@ -59,14 +61,14 @@ var vm = new Vue({
                 return x.id !== item.id;
             });
 
-            this.recalculateIds();
+            this.recalculateNumbers();
         },
 
-        recalculateIds: function () {
+        recalculateNumbers: function () {
             this.newId = this.items.length + 1;
 
             this.items.forEach(function (item, index) {
-                item.id = index + 1;
+                item.number = index + 1;
             });
         }
     }
