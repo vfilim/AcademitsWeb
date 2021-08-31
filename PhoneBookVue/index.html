@@ -26,8 +26,8 @@
             </tr>
             </thead>
             <tbody>
-            <tr v-cloak v-for="item in items" :key="item.id">
-                <th scope="row">{{ item.number }}</th>
+            <tr v-cloak v-for="(item, index) in items" :key="item.id">
+                <th scope="row">{{ index + 1 }}</th>
                 <td>{{ item.firstName }}</td>
                 <td>{{ item.lastName }}</td>
                 <td>{{ item.phoneNumber }}</td>

@@ -52,23 +52,11 @@ var vm = new Vue({
             this.firstName = "";
             this.lastName = "";
             this.phoneNumber = "";
-
-            this.recalculateNumbers();
         },
 
         deleteEntry: function (item) {
             this.items = this.items.filter(function (x) {
                 return x.id !== item.id;
-            });
-
-            this.recalculateNumbers();
-        },
-
-        recalculateNumbers: function () {
-            this.newId = this.items.length + 1;
-
-            this.items.forEach(function (item, index) {
-                item.number = index + 1;
             });
         }
     }
