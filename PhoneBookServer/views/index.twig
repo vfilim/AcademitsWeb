@@ -4,6 +4,15 @@
     {% verbatim %}
 <div class="container" id="app">
     <h1>Phone Book Vue</h1>
+            <form class="mt-4">
+                <label for="searchInput">Search</label>
+                <div class="form-group">
+                   <input type="text" v-model="searchString" aria-label="Search" class="form-control"
+                   id="searchInput">
+                </div>
+            </form>
+        <button type="button" @click="findItems" class="btn btn-success my-3">Find</button>
+        <button type="button" @click="cancelSearch" class="btn btn-secondary my-3">Cancel</button>
     <div class="table-responsive-md">
     <table class="table">
         <thead>
@@ -16,8 +25,8 @@
         </tr>
         </thead>
         <tbody>
-        <tr v-cloak v-for="item in items" :key="item.id">
-            <th scope="row">{{ item.number }}</th>
+        <tr v-cloak v-for="(item, index) in items" :key="item.id">
+            <th scope="row">{{ index + 1 }}</th>
             <td>{{ item.firstName }}</td>
             <td>{{ item.lastName }}</td>
             <td>{{ item.phoneNumber }}</td>
@@ -48,14 +57,6 @@
         </div>
     </form>
     <button type="button" @click="addEntry" class="btn btn-primary my-3">Add</button>
-    <form class="mt-4">
-            <label for="searchInput">Search</label>
-            <div class="form-group">
-                   <input type="text" v-model="searchString" aria-label="Search" class="form-control"
-                   id="searchInput">
-            </div>
-    </form>
-    <button type="button" @click="findItems" class="btn btn-success my-3">Find</button>
     <div v-cloak class="alert alert-danger" role="alert" v-if="!isFirstNameCorrect">Enter the name</div>
     <div v-cloak class="alert alert-danger" role="alert" v-if="!isLastNameCorrect">Enter the last name</div>
     <div v-cloak class="alert alert-danger" role="alert" v-if="!isPhoneNumberCorrect">Enter the number</div>

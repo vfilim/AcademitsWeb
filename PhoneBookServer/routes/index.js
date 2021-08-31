@@ -14,20 +14,20 @@ router.post('/api/addContact', function (req, res) {
 
     var isEntryCorrect = true;
 
-    if (request.firstName === undefined || request.firstName.trim() === "") {
+    if (request.firstName === undefined || request.firstName.trim() === '') {
         isEntryCorrect = false;
     }
 
-    if (request.lastName === undefined || request.lastName.trim() === "") {
+    if (request.lastName === undefined || request.lastName.trim() === '') {
         isEntryCorrect = false;
     }
 
-    if (request.phoneNumber === undefined || request.phoneNumber.trim() === "") {
+    if (request.phoneNumber === undefined || request.phoneNumber.trim() === '') {
         isEntryCorrect = false;
     }
 
     if (!isEntryCorrect) {
-        res.send({"success": false, "message": "enter all fields"});
+        res.send({'success': false, 'message': 'enter all fields'});
 
         return;
     }
@@ -37,11 +37,11 @@ router.post('/api/addContact', function (req, res) {
 
     items.push(request);
 
-    res.send({"success": true});
+    res.send({'success': true});
 });
 
 router.get('/api/findItems', function (req, res) {
-    var searchString = (req.query.searchString || '').toUpperCase();
+    var searchString = (req.query.term || '').toUpperCase();
 
     res.send(items.filter(function (x) {
         return (searchString === '' ||
@@ -56,7 +56,7 @@ router.post('/api/deleteContact', function (req, res) {
         return x.id !== req.body.id;
     });
 
-    res.send({"success": true});
+    res.send({'success': true});
 });
 
 module.exports = router;

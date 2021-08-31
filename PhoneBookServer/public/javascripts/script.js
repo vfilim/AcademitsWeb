@@ -1,13 +1,13 @@
 var vm = new Vue({
-    el: "#app",
+    el: '#app',
 
     data: {
         items: [],
 
-        firstName: "",
-        lastName: "",
-        phoneNumber: "",
-        searchString: "",
+        firstName: '',
+        lastName: '',
+        phoneNumber: '',
+        searchString: '',
 
         isFirstNameCorrect: true,
         isLastNameCorrect: true,
@@ -26,17 +26,17 @@ var vm = new Vue({
 
             var isEntryCorrect = true;
 
-            if (this.firstName.trim() === "") {
+            if (this.firstName.trim() === '') {
                 this.isFirstNameCorrect = false;
                 isEntryCorrect = false;
             }
 
-            if (this.lastName.trim() === "") {
+            if (this.lastName.trim() === '') {
                 this.isLastNameCorrect = false;
                 isEntryCorrect = false;
             }
 
-            if (this.phoneNumber.trim() === "") {
+            if (this.phoneNumber.trim() === '') {
                 this.isPhoneNumberCorrect = false;
                 isEntryCorrect = false;
             }
@@ -47,21 +47,17 @@ var vm = new Vue({
 
             var self = this;
 
-            $.post({
-                url: "/api/addContact",
-                contentType: "application/json",
-                data: JSON.stringify({
-                    firstName: this.firstName,
-                    lastName: this.lastName,
-                    phoneNumber: this.phoneNumber
-                })
-            }, function () {
-                self.findItems();
+            post('/api/addContact', {
+                firstName: this.firstName,
+                lastName: this.lastName,
+                phoneNumber: this.phoneNumber
+            }).done(function () {
+                self.cancelSearch();
             });
 
-            this.firstName = "";
-            this.lastName = "";
-            this.phoneNumber = "";
+            this.firstName = '';
+            this.lastName = '';
+            this.phoneNumber = '';
         },
 
         deleteEntry: function (item) {
@@ -69,35 +65,36 @@ var vm = new Vue({
                 return x.id !== item.id;
             });
 
-            $.post({
-                url: "/api/deleteContact",
-                contentType: "application/json",
-                data: JSON.stringify(item)
-            });
-
-            this.recalculateNumbers();
+            post('/api/deleteContact', item);
         },
 
         findItems: function () {
             var self = this;
 
-            self.items = [];
-
-            var term = "searchString=" + self.searchString;
-
-            $.get('/api/findItems?' + term, function (items) {
-                items.forEach(function (x) {
-                    self.items.push(x);
-                });
-
-                self.recalculateNumbers();
+            get('/api/findItems', self.searchString).done(function (items) {
+                self.items = items;
             });
         },
 
-        recalculateNumbers: function () {
-            this.items.forEach(function (item, index) {
-                item.number = index + 1;
-            });
+        cancelSearch: function () {
+            this.searchString = '';
+
+            this.findItems();
         }
     }
 });
+
+function post(url, data) {
+    return $.post({
+        url: url,
+        data: JSON.stringify(data),
+        contentType: 'application/json'
+    });
+};
+
+function get(url, term) {
+    return $.get({
+        url: url,
+        data: {term: term}
+    });
+}
